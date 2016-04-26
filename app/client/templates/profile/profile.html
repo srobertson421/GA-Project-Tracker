@@ -1,0 +1,54 @@
+<template name="Profile">
+  <div class="profile">
+    {{#if isInRole 'admin'}}
+      <h1>Admin Profile</h1>
+
+      <h2>Current Classes</h2>
+      {{#each classes}}
+        <a href="/class/{{_id}}"><h3>{{name}}</h3></a>
+      {{/each}}
+
+      <form id="invite-admin-form">
+        <select>
+          {{#each users}}
+            <option value="{{getEmail emails}}">{{getEmail emails}}</option>
+          {{/each}}
+        </select>
+        <input type="submit" class="btn btn-info" value="Invite Admin">
+      </form>
+      <div id="invite-message" class="hide">
+        <span>Invited! <i class="glyphicon glyphicon-ok text-success"></i></span>
+      </div>
+
+      <form id="remove-admin-form">
+        <select>
+          {{#each admins}}
+            <option value="{{getEmail emails}}">{{getEmail emails}}</option>
+          {{/each}}
+        </select>
+        <input type="submit" class="btn btn-danger" value="Remove Admin">
+      </form>
+      <div id="remove-message" class="hide">
+        <span>Removed! <i class="glyphicon glyphicon-remove text-danger"></i></span>
+      </div>
+    {{/if}}
+
+    {{#if isInRole 'student'}}
+      <h1>Student Profile</h1>
+
+      <h2>Current Classes</h2>
+      {{#each classes}}
+        <a href="/class/{{_id}}"><h3>{{name}}</h3></a>
+      {{/each}}
+
+      <h2>Submitted Projects</h2>
+      {{#each projects}}
+        <div class="well">
+          <h3>{{name}} <small>Project{{projectNum}}</small></h3>
+          <a href="{{github}}" target="_blank" class="btn btn-info">Github Link</a>
+          <a href="{{url}}" target="_blank" class="btn btn-primary">Deployed App</a>
+        </div>
+      {{/each}}
+    {{/if}}
+  </div>
+</template>

@@ -1,0 +1,14 @@
+<template name="Student">
+  <div class="student">
+    <h1>{{getEmail}}</h1>
+
+    <h2>Submitted Projects</h2>
+    {{#each projects _id}}
+      <div class="well">
+        <h3>{{name}} <small>Project{{projectNum}}</small></h3>
+        <a href="{{github}}" target="_blank" class="btn btn-info">Github Link</a>
+        <a href="{{url}}" target="_blank" class="btn btn-primary">Deployed App</a>
+      </div>
+    {{/each}}
+  </div>
+</template>

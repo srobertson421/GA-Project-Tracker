@@ -1,0 +1,18 @@
+/*****************************************************************************/
+/* CreateClass: Style */
+/*****************************************************************************/
+.create-class {
+}
+
+#new-class-form > button[type="submit"] {
+  display: block;
+}
+
+#new-class-form select {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.add-btn {
+  margin-bottom: 20px;
+}

@@ -1,0 +1,38 @@
+<template name="CreateClass">
+  <div class="create-class">
+    <form id="new-class-form">
+      <div class="form-group">
+        <label>Class Title</label>
+        <input type="text" id="title-input" class="form-control" placeholder="Enter class title">
+      </div>
+      <div id="instructor-selects" class="form-group">
+        <label>Instructors</label>
+        <select class="instructor-select">
+          {{#each admins}}
+            <option value="{{getEmail emails}}">{{getEmail emails}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <button id="add-instructor-btn" type="button" class="btn-primary 3d-btn add-btn">Add Instructor</button>
+      <div id="producer-selects" class="form-group">
+        <label>Producers</label>
+        <select class="producer-select">
+          {{#each admins}}
+            <option value="{{getEmail emails}}">{{getEmail emails}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <button id="add-producer-btn" type="button" class="btn-primary 3d-btn add-btn">Add Producer</button>
+      <div id="student-selects" class="form-group">
+        <label>Students</label>
+        <select class="student-select">
+          {{#each students}}
+            <option value="{{getEmail emails}}">{{getEmail emails}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <button id="add-student-btn" type="button" class="btn-primary 3d-btn add-btn">Add Student</button>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+  </div>
+</template>

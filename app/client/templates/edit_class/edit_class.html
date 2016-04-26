@@ -1,0 +1,48 @@
+<template name="EditClass">
+  <div class="edit-class">
+    <h1>Edit Class</h1>
+    <form id="edit-class-form">
+      <div class="form-group">
+        <label>Class Title</label>
+        <input type="text" id="title-input" class="form-control" value="{{name}}">
+      </div>
+      <div id="instructor-selects" class="form-group">
+        <label>Instructors</label>
+        {{#each staff.instructors}}
+          <select class="instructor-select" value="{{this}}">
+            {{#each admins}}
+              <option value="{{getEmail emails}}">{{getEmail emails}}</option>
+            {{/each}}
+          </select>
+          <button type="button" class="delete-btn btn btn-danger">X</button>
+        {{/each}}
+      </div>
+      <button id="add-instructor-btn" type="button" class="btn-primary 3d-btn add-btn">Add Instructor</button>
+      <div id="producer-selects" class="form-group">
+        <label>Producers</label>
+        {{#each staff.producers}}
+          <select class="producer-select" value="{{this}}">
+            {{#each admins}}
+              <option value="{{getEmail emails}}">{{getEmail emails}}</option>
+            {{/each}}
+          </select>
+          <button type="button" class="delete-btn btn btn-danger">X</button>
+        {{/each}}
+      </div>
+      <button id="add-producer-btn" type="button" class="btn-primary 3d-btn add-btn">Add Producer</button>
+      <div id="student-selects" class="form-group">
+        <label>Students</label>
+        {{#each students}}
+          <select class="student-select" value="{{this}}">
+            {{#each allStudents}}
+              <option value="{{getEmail emails}}">{{getEmail emails}}</option>
+            {{/each}}
+          </select>
+          <button type="button" class="delete-btn btn btn-danger">X</button>
+        {{/each}}
+      </div>
+      <button id="add-student-btn" type="button" class="btn-primary 3d-btn add-btn">Add Student</button>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+  </div>
+</template>
